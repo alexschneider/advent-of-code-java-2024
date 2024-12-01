@@ -3,19 +3,46 @@ package aoc.day01;
 import aoc.Day;
 import aoc.Utils;
 
-import java.util.List;
+import java.util.Collections;
+import java.util.stream.Collectors;
+
+import com.google.common.collect.ImmutableMultiset;
 
 public class Day01 implements Day {
 
     @Override
     public String part1(String input) {
-        List<String> lines = Utils.splitLines(input);
-        return lines.isEmpty() ? "" : lines.get(0);
+        var lines = Utils.splitLines(input);
+        var left = lines.stream()
+                .map(t -> Integer.parseInt(t.split("[ ]+")[0]))
+                .collect(Collectors.toList());
+        var right = lines.stream()
+                .map(t -> Integer.parseInt(t.split("[ ]+")[1]))
+                .collect(Collectors.toList());
+
+        Collections.sort(left);
+        Collections.sort(right);
+        var sum = 0;
+        for (var i = 0; i < left.size(); i++) {
+            var diff = Math.abs(left.get(i) - right.get(i));
+            sum += diff;
+        }
+        return Integer.toString(sum);
     }
 
     @Override
     public String part2(String input) {
-        return input;
+        var lines = Utils.splitLines(input);
+        var right = lines.stream()
+                .map(t -> Integer.parseInt(t.split("[ ]+")[1]))
+                .collect(ImmutableMultiset.toImmutableMultiset());
+
+        var sum = lines.stream()
+                .map(t -> Integer.parseInt(t.split("[ ]+")[0]))
+                .map(t -> right.count(t) * t)
+                .reduce(0, Integer::sum);
+
+        return Integer.toString(sum);
     }
 
 }

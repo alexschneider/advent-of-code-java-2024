@@ -16,6 +16,10 @@ repositories {
 }
 
 dependencies {
+    // Runtime dependenccies
+    implementation("com.google.guava:guava:33.3.1-jre")
+    implementation("org.apache.commons:commons-configuration2:2.11.0")
+
     // Use JUnit Jupiter for testing.
     testImplementation(libs.junit.jupiter)
 

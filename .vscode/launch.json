@@ -9,18 +9,26 @@
             "type": "java",
             "name": "App",
             "request": "launch",
+            "preLaunchTask": "java (build): Build Workspace",
             "mainClass": "aoc.App",
             "projectName": "advent-of-code-java-2024",
             "args": [
-                "${input:args}"
+                "${input:arg1}",
+                "${input:arg2}"
             ]
         }
     ],
     "inputs": [
         {
-            "id": "args",
+            "id": "arg1",
             "type":"promptString",
             "description": "Enter day or day and part (e.g. '1' or '1 2')",
+            "default": ""
+        },
+        {
+            "id": "arg2",
+            "type":"promptString",
+            "description": "Enter part (e.g. '1' or '1 2')",
             "default": ""
         }
     ]
