@@ -6,7 +6,7 @@
 			"paths": [
 				"${workspace}"
 			],
-			"isFullBuild": true,
+			"isFullBuild": false,
 			"group": "build",
 			"problemMatcher": [],
 			"label": "java (build): Build Workspace",
