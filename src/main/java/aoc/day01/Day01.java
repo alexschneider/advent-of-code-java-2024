@@ -15,13 +15,12 @@ public class Day01 implements Day {
         var lines = Utils.splitLines(input);
         var left = lines.stream()
                 .map(t -> Integer.parseInt(t.split("[ ]+")[0]))
+                .sorted()
                 .collect(Collectors.toList());
         var right = lines.stream()
                 .map(t -> Integer.parseInt(t.split("[ ]+")[1]))
+                .sorted()
                 .collect(Collectors.toList());
-
-        Collections.sort(left);
-        Collections.sort(right);
         var sum = 0;
         for (var i = 0; i < left.size(); i++) {
             var diff = Math.abs(left.get(i) - right.get(i));
