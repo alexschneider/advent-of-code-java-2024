@@ -3,7 +3,6 @@ package aoc.day01;
 import aoc.Day;
 import aoc.Utils;
 
-import java.util.Collections;
 import java.util.stream.Collectors;
 
 import com.google.common.collect.ImmutableMultiset;
