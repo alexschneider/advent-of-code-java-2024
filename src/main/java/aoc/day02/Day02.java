@@ -34,22 +34,14 @@ public class Day02 implements Day {
             if (lastData != 0) {
                 var difference = Math.abs(num - lastData);
                 if (difference < 1 || difference > 3) {
-                    if (problemDampener) {
-                        return tryProblemDampener(data, i);
-                    } else {
-                        return false;
-                    }
+                    return problemDampener && tryProblemDampener(data, i);
                 }
 
                 var thisIncreasing = (num - lastData) / difference;
                 if (increasing == 0) {
                     increasing = thisIncreasing;
                 } else if (thisIncreasing != increasing) {
-                    if (problemDampener) {
-                        return tryProblemDampener(data, i);
-                    } else {
-                        return false;
-                    }
+                    return problemDampener && tryProblemDampener(data, i);
                 }
             }
 
@@ -74,9 +66,7 @@ public class Day02 implements Day {
         if (i > 1) {
             var dataWithoutSecondPrevious = new LinkedList<Integer>(data);
             dataWithoutSecondPrevious.remove(i - 2);
-            if (isSafe(dataWithoutSecondPrevious, false)) {
-                return true;
-            }
+            return isSafe(dataWithoutSecondPrevious, false);
         }
         return false;
     }
