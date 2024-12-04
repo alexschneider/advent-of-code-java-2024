@@ -1,18 +1,12 @@
 package aoc.day04;
 
-import aoc.Day;
-import aoc.Utils;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
-import javax.xml.stream.events.Characters;
-
 import com.google.common.primitives.Chars;
+
+import aoc.Day;
+import aoc.Utils;
 
 public class Day04 implements Day {
 
