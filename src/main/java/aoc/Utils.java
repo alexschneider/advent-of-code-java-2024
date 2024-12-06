@@ -6,7 +6,7 @@ import java.util.List;
 public class Utils {
 
     public static List<String> splitLines(String input) {
-        return Arrays.asList(input.split("\\r?\\n"));
+        return Arrays.asList(input.strip().split("\\r?\\n"));
     }
 
 }
