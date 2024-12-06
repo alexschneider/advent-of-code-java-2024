@@ -20,7 +20,6 @@ public class Day04 implements Day {
                 if (x == 0 && y == 0) {
                     continue;
                 }
-
                 sum += countInDirections(matrix, x, y);
             }
         }
@@ -56,7 +55,10 @@ public class Day04 implements Day {
     }
 
     private boolean isValidX(List<List<Character>> matrix, int x, int y) {
-        if (x == 0 || y == 0 || x == matrix.size() - 1 || y == matrix.get(x).size() - 1) {
+        if (!matrix.get(x).get(y).equals((Character) 'A')) {
+            return false;
+        }
+        if (x <= 0 || y <= 0 || x >= matrix.size() - 1 || y >= matrix.get(x).size() - 1) {
             return false;
         }
         var validList = List.of('M', 'S');
@@ -74,7 +76,7 @@ public class Day04 implements Day {
         var sum = 0;
         for (int x = 0; x < matrix.size(); x++) {
             for (int y = 0; y < matrix.get(x).size(); y++) {
-                if (matrix.get(x).get(y).equals((Character) 'A') && isValidX(matrix, x, y)) {
+                if (isValidX(matrix, x, y)) {
                     sum++;
                 }
             }
